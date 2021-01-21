@@ -1,3 +1,9 @@
+header{
+  width: 70%;
+  border: #282c34 solid;
+  margin: 20px auto;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +41,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.head-container{
+  background-color: aqua;
+  width: 60%;
+  color:black;
+}
+.head-container p{
+  padding: 10px;
+}
+
+.main-container{
+  display:block;
+  width: 60%;
+}
+
+.main-container button{
+  display:block;
+  width: 100%;
+  padding: 20px 0px;
+  background-color: bisque;
+  font-weight: bold;
 }
