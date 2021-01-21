@@ -1,3 +1,14 @@
+const express = require('express')
+const mysql = require('mysql')
+const con = mysql.createConnection({
+    host:'localhost',
+    user:'root',
+    password:'',
+    database:'trivia'
+});
+
+
+
 const data = [
     {id:1, title:"el titulo de la app",op1:"uno",op2:"dos",op3:"tres",op4:"cuatro",op5:"cinco",correcto:"tres"},
     {id:2, title:"el titulo de la app",op1:"uno",op2:"dos",op3:"tres",op4:"cuatro",op5:"cinco",correcto:"tres"},
