@@ -5,7 +5,7 @@ const app = express();
 app.use('/api',routeApi);
 
 app.use('/',(req,res)=>{
-    res.send("Bienvenido a la trivia");
+    res.send("<h1>Bienvenido a la trivia, para ir a la api  <a href='/api'>hace click aca</a></h1>");
 });
 
 app.listen(9000,()=>{
