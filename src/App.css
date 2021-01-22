@@ -61,6 +61,18 @@ header{
   display:block;
   width: 100%;
   padding: 20px 0px;
-  background-color: bisque;
+  /* background-color: bisque; */
   font-weight: bold;
+}
+
+.red{
+  background-color: red;
+}
+
+.green{
+  background-color:green;
+}
+
+.background{
+  background-color:yellow;
 }
