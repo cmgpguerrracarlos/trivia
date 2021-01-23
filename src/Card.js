@@ -13,16 +13,20 @@ class Card extends Component {
             op4:"",
             op5:"",
             correcta:"",
-            color:"",
             press:false
         }]
     }
     
     componentDidMount(){
         this.setState({
-            question:"La pregunta se va a colocar aca, hay una unica respuesta posible",
-            op1:"Opcion 1",op2:"Opcion 2",op3:"Opcion 3",op4:"Opcion 4",op5:"Opcion 5",
-            correcta:"1",color:"yellow",press:false
+            question:this.props.data.q,
+            op1:this.props.data.op1,
+            op2:this.props.data.op2,
+            op3:this.props.data.op3,
+            op4:this.props.data.op4,
+            op5:this.props.data.op5,
+            correcta:this.props.data.correcta,
+            press:this.props.data.press
         });
     }
 
@@ -38,6 +42,12 @@ class Card extends Component {
         });
         
     }
+
+    onClickNext = (e)=>{
+        this.setState({
+            press:false
+        })
+    }
     render() {
         return (
             <header className="App-header">
@@ -51,6 +61,7 @@ class Card extends Component {
                     <button onClick={this.onClickHandler} name="4" className={(!this.state.press)?"background":this.state.correcta === "4"?"green":"red"}>{this.state.op4}</button>
                     <button onClick={this.onClickHandler} name="5"className={(!this.state.press)?"background":this.state.correcta === "5"?"green":"red"}>{this.state.op5}</button>
                 </div>
+                <button onClick={this.onClickNext}>next</button>
              </header>
         )
     }

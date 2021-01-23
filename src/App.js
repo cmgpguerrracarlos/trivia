@@ -1,10 +1,11 @@
 import './App.css';
-import Card from './Card.js'
+import Controller from './Controller';
+
 
 function App() {
   return (
     <div className="App">
-      <Card/>
+      <Controller/>
     </div>
   );
 }
