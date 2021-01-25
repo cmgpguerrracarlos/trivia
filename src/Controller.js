@@ -5,7 +5,8 @@ export default class Controller extends Component {
     constructor(props){
         super(props)
         this.state={
-            data:{}
+            data:{},
+            press:false
         }
     }
 
@@ -13,41 +14,28 @@ export default class Controller extends Component {
         this.setState({data:{
             question:"La pregunta se va a colocar aca, hay una unica respuesta posible",
                 op1:"Opcion 1",op2:"Opcion 2",op3:"Opcion 3",op4:"Opcion 4",op5:"Opcion 5",
-                correcta:"1",press:false
-        }});
+                correcta:"1"
+        },press:false
+    });
     }
 
     onClickHandler = (e)=>{
-        let c = e.currentTarget.name;
-        if(c === this.state.correcta){
-            console.log("Correcto");
-        }else{
-            console.log("No correcto");
-        }
         this.setState({
-            data:{
-                question:"La pregunta se va a colocar aca, hay una unica respuesta posible",
-                op1:"Opcion 1",op2:"Opcion 2",op3:"Opcion 3",op4:"Opcion 4",op5:"Opcion 5",
-                correcta:"1",press:true
-            }
+            press:true
         });
         
     }
 
     onClickNext = (e)=>{
         this.setState({
-            data:{
-                question:"La pregunta se va a colocar aca, hay una unica respuesta posible",
-                op1:"Opcion 1",op2:"Opcion 2",op3:"Opcion 3",op4:"Opcion 4",op5:"Opcion 5",
-                correcta:"1",press:false
-            }
+            press:false
         })
     }
 
     render() {
         return (
             <div className="App">
-            <Card data={this.state.data} onClickHandler={this.onClickHandler} onClickNext={this.onClickNext}/>
+            <Card data={this.state.data} press={this.state.press} onClickHandler={this.onClickHandler} onClickNext={this.onClickNext}/>
           </div>
         )
     }
