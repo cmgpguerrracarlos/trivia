@@ -8,7 +8,7 @@ class Card extends Component {
                 <div className="head-container">
                     <p>{this.props.data.question}</p>
                 </div>
-                <div class="main-container background">
+                <div className="main-container background">
                     <button onClick={this.props.onClickHandler} name="1" className={(!this.props.press)?"background":this.props.data.correcta === "1"?"green":"red"} >{this.props.data.op1} </button>
                     <button onClick={this.props.onClickHandler} name="2" className={(!this.props.press)?"background":this.props.data.correcta === "2"?"green":"red"}>{this.props.data.op2}</button>
                     <button onClick={this.props.onClickHandler} name="3" className={(!this.props.press)?"background":this.props.data.correcta === "3"?"green":"red"}>{this.props.data.op3}</button>

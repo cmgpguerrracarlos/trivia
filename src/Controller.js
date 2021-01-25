@@ -6,7 +6,8 @@ export default class Controller extends Component {
         super(props)
         this.state={
             data:{},
-            press:false
+            press:false,
+            pto:0
         }
     }
 
@@ -15,21 +16,25 @@ export default class Controller extends Component {
             question:"La pregunta se va a colocar aca, hay una unica respuesta posible",
                 op1:"Opcion 1",op2:"Opcion 2",op3:"Opcion 3",op4:"Opcion 4",op5:"Opcion 5",
                 correcta:"1"
-        },press:false
+        },press:false,
+        pto:0
     });
     }
 
     onClickHandler = (e)=>{
-        this.setState({
-            press:true
-        });
-        
+        let opc = e.currentTarget.name;
+        if(opc === this.state.data.correcta){
+            this.setState({press:true,pto:this.state.pto +4});
+        }else{
+            this.setState({press:true,pto:this.state.pto -1});
+        }
     }
 
     onClickNext = (e)=>{
         this.setState({
             press:false
-        })
+        });
+        console.log("Puntaje total: ",this.state.pto);
     }
 
     render() {
