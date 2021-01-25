@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 import Card from "./Card";
 
 export default class Controller extends Component {
@@ -12,14 +13,13 @@ export default class Controller extends Component {
     }
 
     componentDidMount(){
-        this.setState({data:{
-            question:"La pregunta se va a colocar aca, hay una unica respuesta posible",
-                op1:"Opcion 1",op2:"Opcion 2",op3:"Opcion 3",op4:"Opcion 4",op5:"Opcion 5",
-                correcta:"1"
-        },press:false,
-        pto:0
-    });
-    }
+        axios.get("http://localhost:9000/api").then((res,error)=>{
+            if(error) throw error;
+            const datos = res.data[0];
+            console.log(datos)
+            this.setState({data:datos,press:false,pto:0});
+        })
+    };
 
     onClickHandler = (e)=>{
         let opc = e.currentTarget.name;
@@ -31,9 +31,12 @@ export default class Controller extends Component {
     }
 
     onClickNext = (e)=>{
-        this.setState({
-            press:false
-        });
+        axios.get("http://localhost:9000/api").then((res,error)=>{
+            if(error) throw error;
+            const datos = res.data[0];
+            console.log(datos)
+            this.setState({data:datos,press:false,pto:0});
+        })
         console.log("Puntaje total: ",this.state.pto);
     }
 
