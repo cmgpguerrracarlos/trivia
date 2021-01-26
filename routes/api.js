@@ -5,7 +5,7 @@ const route = express.Router();
 route.get('/',(req,res)=>{
     let total = data.length;
     let rando =Math.floor(Math.random()*(total-1));
-    res.send(data[rando]);
+    res.send(data);
 });
 
 module.exports = route
