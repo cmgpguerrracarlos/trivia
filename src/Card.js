@@ -11,13 +11,14 @@ class Card extends Component {
                     <p>{this.props.data.question}</p>
                 </div>
                 <div className="main-container background">
-                    <button onClick={onClickHandler} name="1" className={(!press)?"background":data.correcta === "1"?"green":"red"} >{data.op1} </button>
-                    <button onClick={onClickHandler} name="2" className={(!press)?"background":data.correcta === "2"?"green":"red"}>{data.op2}</button>
-                    <button onClick={onClickHandler} name="3" className={(!press)?"background":data.correcta === "3"?"green":"red"}>{data.op3}</button>
-                    <button onClick={onClickHandler} name="4" className={(!press)?"background":data.correcta === "4"?"green":"red"}>{data.op4}</button>
-                    <button onClick={onClickHandler} name="5"className={(!press)?"background":data.correcta === "5"?"green":"red"}>{data.op5}</button>
+                    <button onClick={onClickHandler} name="1" className={(press)?((pressval === "1")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op1}</button>
+                    <button onClick={onClickHandler} name="2" className={(press)?((pressval === "2")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op2}</button>
+                    <button onClick={onClickHandler} name="3" className={(press)?((pressval === "3")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op3}</button>
+                    <button onClick={onClickHandler} name="4" className={(press)?((pressval === "4")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op4}</button>
+                    <button onClick={onClickHandler} name="5" className={(press)?((pressval === "5")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op5}</button>
                 </div>
                 <button onClick={this.props.onClickNext}>next</button>
+                <h2>{console.log(pressval)}</h2>
              </header>
         )
     }

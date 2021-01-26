@@ -9,32 +9,41 @@ export default class Controller extends Component {
             data:{},
             press:false,
             pressval:"",
-            pto:0
+            pto:0,
+            nropregunta:0
         }
     }
 
     componentDidMount(){
         axios.get("http://localhost:9000/api").then((res,error)=>{
             if(error) throw error;
-            const datos = res.data[0];
-            console.log(datos)
+            let tam = res.data[0].length;
+            console.log(tam)
+            let q = Math.floor(Math.random()*tam)
+            const datos = res.data[0][q];
             this.setState({data:datos,press:false,pto:0});
         })
     };
 
     onClickHandler = (e)=>{
-        let opc = e.currentTarget.name;
-        if(opc === this.state.data.correcta){
-            this.setState({press:true,pressval:opc,pto:this.state.pto +4});
-        }else{
-            this.setState({press:true,pressval:opc,pto:this.state.pto -1});
+        if(!this.state.press){
+            let opc = e.currentTarget.name;
+            if(opc === this.state.data.correcta){
+                this.setState({press:true,pressval:opc,pto:this.state.pto +4});
+            }else{
+                this.setState({press:true,pressval:opc,pto:this.state.pto -1});
+            }
         }
+        
     }
 
     onClickNext = (e)=>{
         axios.get("http://localhost:9000/api").then((res,error)=>{
             if(error) throw error;
-            const datos = res.data[0];
+            let tam = res.data[0].length;
+            console.log(tam)
+            let q = Math.floor(Math.random()*tam)
+            const datos = res.data[0][q];
             console.log(datos)
             this.setState({data:datos,press:false,pto:0});
         })
@@ -44,7 +53,7 @@ export default class Controller extends Component {
     render() {
         return (
             <div className="App">
-            <Card data={this.state.data} press={this.state.press} onClickHandler={this.onClickHandler} onClickNext={this.onClickNext}/>
+            <Card data={this.state.data} press={this.state.press} pressval={this.state.pressval} onClickHandler={this.onClickHandler} onClickNext={this.onClickNext}/>
           </div>
         )
     }
