@@ -8,6 +8,7 @@ export default class Controller extends Component {
         this.state={
             data:{},
             press:false,
+            pressval:"",
             pto:0
         }
     }
@@ -24,9 +25,9 @@ export default class Controller extends Component {
     onClickHandler = (e)=>{
         let opc = e.currentTarget.name;
         if(opc === this.state.data.correcta){
-            this.setState({press:true,pto:this.state.pto +4});
+            this.setState({press:true,pressval:opc,pto:this.state.pto +4});
         }else{
-            this.setState({press:true,pto:this.state.pto -1});
+            this.setState({press:true,pressval:opc,pto:this.state.pto -1});
         }
     }
 
