@@ -10,22 +10,23 @@ export default class Controller extends Component {
             press:false,
             pressval:"",
             pto:0,
-            nropregunta:0
+            nropregunta:1
         }
     }
 
     componentDidMount(){
-        axios.get("http://localhost:9000/api").then((res,error)=>{
+        axios.get("http://192.168.1.5:9000/api").then((res,error)=>{
             if(error) throw error;
             let tam = res.data[0].length;
             console.log(tam)
             let q = Math.floor(Math.random()*tam)
             const datos = res.data[0][q];
-            this.setState({data:datos,press:false,pto:0});
+            this.setState({data:datos,press:false});
         })
     };
 
     onClickHandler = (e)=>{
+        e.preventDefault();
         if(!this.state.press){
             let opc = e.currentTarget.name;
             if(opc === this.state.data.correcta){
@@ -38,23 +39,24 @@ export default class Controller extends Component {
     }
 
     onClickNext = (e)=>{
-        axios.get("http://localhost:9000/api").then((res,error)=>{
+        e.preventDefault();
+        axios.get("http://192.168.1.5:9000/api").then((res,error)=>{
             if(error) throw error;
             let tam = res.data[0].length;
             console.log(tam)
             let q = Math.floor(Math.random()*tam)
             const datos = res.data[0][q];
             console.log(datos)
-            this.setState({data:datos,press:false,pto:0});
+            this.setState({data:datos,press:false,nropregunta:this.state.nropregunta+1});
         })
         console.log("Puntaje total: ",this.state.pto);
     }
 
     render() {
         return (
-            <div className="App">
-            <Card data={this.state.data} press={this.state.press} pressval={this.state.pressval} onClickHandler={this.onClickHandler} onClickNext={this.onClickNext}/>
-          </div>
+            <>
+                <Card data={this.state.data} nropregunta={this.state.nropregunta} pto={this.state.pto} press={this.state.press} pressval={this.state.pressval} onClickHandler={this.onClickHandler} onClickNext={this.onClickNext}/>
+            </>
         )
     }
 }

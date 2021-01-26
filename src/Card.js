@@ -4,7 +4,7 @@ import './App.css'
 class Card extends Component {   
      
     render() {
-        const {onClickHandler,press,pressval,data} = this.props;
+        const {onClickHandler,press,pressval,data,nropregunta} = this.props;
         return (
             <header className="App-header">
                 <div className="head-container">
@@ -17,8 +17,11 @@ class Card extends Component {
                     <button onClick={onClickHandler} name="4" className={(press)?((pressval === "4")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op4}</button>
                     <button onClick={onClickHandler} name="5" className={(press)?((pressval === "5")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op5}</button>
                 </div>
-                <button onClick={this.props.onClickNext}>next</button>
-                <h2>{console.log(pressval)}</h2>
+                <div className="footer">
+                    <button className="button" onClick={this.props.onClickNext}>next</button>
+                    <p className="texto" >Puntaje total: {this.props.pto} Cantidad de preguntas: {nropregunta}</p>
+                </div>
+                
              </header>
         )
     }
