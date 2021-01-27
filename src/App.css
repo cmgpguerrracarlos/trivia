@@ -1,37 +1,43 @@
+body{
+  display: flex;
+  flex-basis: 600px;
+  justify-content: center;
+  background-color: rgb(50, 50, 50);
+}
+
 header{
-  width: 40%;
-  min-height: 650px;
+  flex:1;
   margin: 0px auto;
   font-weight: bold;
   color:blue;
-  background-color: rgb(167, 157, 157);
+  background-color:black;
 }
 
 .App {
   text-align: center;
+  display:flex;
+  justify-content: center;
+  background-color: black;
 }
 
 
 @media only screen and (max-width: 600px) {
   .App-header{
-    width: 100%;
+    flex:1;
     min-height: 600px;
-    background-color:red;
     padding: 0px;
     margin: 0px;
-  }
-  .App-header,.head-container,.main-container,.footer{
-    width: 100%;
   }
 }
 
 .App-header {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: black;
 }
 
 .App-link {
@@ -39,55 +45,65 @@ header{
 }
 
 .head-container{
-  background-color: aqua;
-  flex:1;
+  background-color: rgb(149, 229, 250);
+  width: 600px;
   color:black;
-  border:2px black solid;
+  border-radius:50px rgb(169, 169, 224) solid;
+  display:flex;
 }
 .head-container p{
-  padding: 20px;
+  margin: auto;
+  padding: 50px;
 }
 
 .main-container{
+  flex:4;
   display:flex;
   flex-direction: column;
-  width: 100%;
-  border-radius:10px black solid;
-  flex:4;
+  width: 100%;  
 }
 
 .main-container button{
   width: 100%;
   padding: 20px 20px;
   font-weight: bold;
-  border:2px black solid;
+  font-size: large;
+  border:5px rgb(54, 53, 53) solid;
+  border-radius:0px 0px 10px 10px;
+}
+
+.main-container button:hover{
+  color:white;
 }
 
 .red{
-  background-color: red;
+  background-color: rgb(250, 0, 150);
   color:beige;
 }
 
 .green{
-  background-color:rgb(13, 122, 13);
+  background-color:rgb(60, 190, 112);
   color:beige;
 }
 
 .background{
-  background-color:yellow;
+  background-color:blue;
+  color:rgb(218, 208, 208);
 }
 
 .footer{
   flex:1;
+  width: 600px;
   display: flex;
   flex-direction: column;
-  background-color: aquamarine;
+  background-color: rgb(149, 229, 250);
 }
 .button{
   flex:1;
-  background-color: blue;
+  background-color:darkblue;
   color: aliceblue;
   font-weight: bold;
+  font-size:large;
 }
 .texto{
   flex:4;
