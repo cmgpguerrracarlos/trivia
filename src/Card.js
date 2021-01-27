@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+import Button from './components/Button.js'
 
 class Card extends Component {   
      
@@ -11,11 +12,11 @@ class Card extends Component {
                     <p>{this.props.data.question}</p>
                 </div>
                 <div className="main-container background">
-                    <button onClick={onClickHandler} name="1" className={(press)?((pressval === "1")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op1}</button>
-                    <button onClick={onClickHandler} name="2" className={(press)?((pressval === "2")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op2}</button>
-                    <button onClick={onClickHandler} name="3" className={(press)?((pressval === "3")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op3}</button>
-                    <button onClick={onClickHandler} name="4" className={(press)?((pressval === "4")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op4}</button>
-                    <button onClick={onClickHandler} name="5" className={(press)?((pressval === "5")?((pressval === data.correcta)?"green":"red"):"background"):"background"}>{data.op5}</button>
+                    <Button onClickHandler={onClickHandler} name="1" press={press} pressval={pressval} data={data} op={data.op1}/>
+                    <Button onClickHandler={onClickHandler} name="2" press={press} pressval={pressval} data={data} op={data.op2}/>
+                    <Button onClickHandler={onClickHandler} name="3" press={press} pressval={pressval} data={data} op={data.op3}/>
+                    <Button onClickHandler={onClickHandler} name="4" press={press} pressval={pressval} data={data} op={data.op4}/>
+                    <Button onClickHandler={onClickHandler} name="5" press={press} pressval={pressval} data={data} op={data.op5}/>
                 </div>
                 <div className="footer">
                     <button className="button" onClick={this.props.onClickNext}>next</button>
