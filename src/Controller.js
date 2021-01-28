@@ -14,8 +14,11 @@ export default class Controller extends Component {
         }
     }
 
+    url1 = "http://192.168.1.5:9000/api";
+    //url2 = "http://192.168.43.112:9000/api"
+
     componentDidMount(){
-        axios.get("http://192.168.1.5:9000/api").then((res,error)=>{
+        axios.get(this.url1).then((res,error)=>{
             if(error) throw error;
             let tam = res.data[0].length;
             console.log(tam)
@@ -40,7 +43,7 @@ export default class Controller extends Component {
 
     onClickNext = (e)=>{
         e.preventDefault();
-        axios.get("http://192.168.1.5:9000/api").then((res,error)=>{
+        axios.get(this.url1).then((res,error)=>{
             if(error) throw error;
             let tam = res.data[0].length;
             console.log(tam)

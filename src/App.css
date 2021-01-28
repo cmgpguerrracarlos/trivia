@@ -5,14 +5,6 @@ body{
   background-color: rgb(50, 50, 50);
 }
 
-header{
-  flex:1;
-  margin: 0px auto;
-  font-weight: bold;
-  color:blue;
-  background-color:black;
-}
-
 .App {
   text-align: center;
   display:flex;
@@ -20,14 +12,12 @@ header{
   background-color: black;
 }
 
-
-@media only screen and (max-width: 600px) {
-  .App-header{
-    flex:1;
-    min-height: 600px;
-    padding: 0px;
-    margin: 0px;
-  }
+header{
+  flex:1;
+  margin: 0px auto;
+  font-weight: bold;
+  color:blue;
+  background-color:black;
 }
 
 .App-header {
@@ -40,8 +30,13 @@ header{
   background-color: black;
 }
 
-.App-link {
-  color: #61dafb;
+@media only screen and (max-width: 600px) {
+  .App-header{
+    flex:1;
+    min-height: 600px;
+    padding: 0px;
+    margin: 0px;
+  }
 }
 
 .head-container{
@@ -76,6 +71,14 @@ header{
   color:white;
 }
 
+.footer{
+  flex:1;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(149, 229, 250);
+}
+
 .red{
   background-color: rgb(250, 0, 150);
   color:beige;
@@ -91,13 +94,6 @@ header{
   color:rgb(218, 208, 208);
 }
 
-.footer{
-  flex:1;
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(149, 229, 250);
-}
 .button{
   flex:1;
   background-color:darkblue;

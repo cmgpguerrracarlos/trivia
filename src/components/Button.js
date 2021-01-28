@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
 
 export default class Button extends Component {
-    constructor(props){
-        super(props);
-    }
-
     
-
     render() {
-        const {onClickHandler,name, press,pressval,data,op} = this.props;
+        //const {onClickHandler,name, press,pressval,data,op} = this.props;
 
         return (
-            <button onClick={onClickHandler} name={name} className={(press)?((pressval === {name})?((pressval === data.correcta)?"green":"red"):"background"):"background"}>
-                {op}
+            <button onClick={this.props.onClickHandler} name={this.props.name} className={(this.props.press)?((this.props.pressval === this.props.name)?((this.props.pressval === this.props.data.correcta)?"green":"red"):"background"):"background"}>
+                {this.props.op}
             </button>   
         )
     }
