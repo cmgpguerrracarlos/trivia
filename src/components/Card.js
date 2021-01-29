@@ -9,7 +9,8 @@ class Card extends Component {
         return (
             <header className="App-header">
                 <div className="head-container">
-                    <p>{this.props.data.question}</p>
+                    <p className="texto" >Puntaje total: {this.props.pto} Cantidad de preguntas: {nropregunta}</p>
+                    <p className="question">{this.props.data.question}</p>
                 </div>
                 <div className="main-container background">
                     <Button onClickHandler={onClickHandler} name="1" press={press} pressval={pressval} data={data} op={data.op1}/>

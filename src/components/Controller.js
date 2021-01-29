@@ -16,7 +16,6 @@ export default class Controller extends Component {
 
     //url = "http://192.168.1.5:9000/api";
     url = "http://192.168.43.112:9000/api"
-    //url = "http:localhost:9000"
 
     componentDidMount(){
         axios.get(this.url).then((res,error)=>{
