@@ -5,16 +5,16 @@ const con = mysql.createConnection({
     password:'',
     database:'trivia'
 });
+// const data = [];
 
-const data = [];
+// con.connect();
 
-con.connect();
+// con.query('SELECT * FROM data',(error,result)=>{
+//     if(error) throw error;
+//     data.push(result);
+// });
 
-con.query('SELECT * FROM data',(error,result)=>{
-    if(error) throw error;
-    data.push(result);
-});
-
-con.end();
+// con.end();
  
-module.exports = data
+// module.exports = data
+module.exports = con
