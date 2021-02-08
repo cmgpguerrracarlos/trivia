@@ -9,31 +9,7 @@ const con = mysql.createConnection({
     database:'trivia'
 });
 
-const data = [];
-route.get('/:id',(req,res)=>{
-    let id = req.params.id;
-    const data = [];
-    const con = mysql.createConnection({
-        host:'localhost',
-        user:'root',
-        password:'',
-        database:'trivia'
-    });
-    console.log(id);
-    con.connect();
-    con.query(`SELECT * FROM data Where id=${id}`,(error,result)=>{
-    if(error) throw error;
-    console.log(result)
-
-    data.push(result);
-    res.send(data);
-    })
-    
-});
-
-
 route.get('/',(req,res)=>{
-    const data = [];
     const con = mysql.createConnection({
         host:'localhost',
         user:'root',
@@ -41,13 +17,12 @@ route.get('/',(req,res)=>{
         database:'trivia'
     });
     con.connect();
-    con.query(`SELECT count(*) as total FROM data`,(error,result)=>{
-    if(error) throw error;
-    console.log(result)
 
-    data.push(result);
-    res.send(data);
+    con.query(`SELECT * FROM data ORDER BY RAND() LIMIT 1`,(error,result)=>{
+    if(error) throw error;
+    res.send(result);
     });
+    con.end();
 });
 
 module.exports = route
