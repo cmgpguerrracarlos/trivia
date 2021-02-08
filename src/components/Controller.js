@@ -21,10 +21,7 @@ export default class Controller extends Component {
     componentDidMount(){
         axios.get(this.url).then((res,error)=>{
             if(error) throw error;
-            let tam = res.data[0].length;
-            console.log(tam)
-            let q = Math.floor(Math.random()*tam)
-            const datos = res.data[0][q];
+            const datos = res.data[0];
             this.setState({data:datos,press:false});
         })
     };
@@ -43,17 +40,16 @@ export default class Controller extends Component {
     }
 
     onClickNext = (e)=>{
+       if(this.state.press){
         e.preventDefault();
         axios.get(this.url).then((res,error)=>{
             if(error) throw error;
-            let tam = res.data[0].length;
-            console.log(tam)
-            let q = Math.floor(Math.random()*tam)
-            const datos = res.data[0][q];
-            console.log(datos)
+            const datos = res.data[0];
             this.setState({data:datos,press:false,nropregunta:this.state.nropregunta+1});
         })
         console.log("Puntaje total: ",this.state.pto);
+
+       }
     }
 
     render() {
