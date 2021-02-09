@@ -8,6 +8,7 @@ class Card extends Component {
         const {onClickHandler,press,pressval,data,nropregunta} = this.props;
         return (
             <header className="App-header">
+                {/* <button onClick={this.props.componentDidMount}>try again</button> */}
                 <div className="head-container">
                     {/* <p className="texto" >Puntaje total: {this.props.pto} Cantidad de preguntas: {nropregunta}</p> */}
                     <div className="texto">
@@ -23,7 +24,9 @@ class Card extends Component {
                     <Button onClickHandler={onClickHandler} name="5" press={press} pressval={pressval} data={data} op={data.op5}/>
                 </div>
                 <div className="footer">
-                    <button className="button" onClick={this.props.onClickNext}>next</button>
+                    <button className="button" onClick={this.props.onClickNext}>
+                        {(this.props.chances===0)?"Try again":"next question"}
+                    </button>
                     <p className="texto" >Puntaje total: {this.props.pto} Cantidad de preguntas: {nropregunta}</p>
                 </div>
                 

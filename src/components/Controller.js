@@ -19,7 +19,7 @@ export default class Controller extends Component {
     //url = "http://192.168.43.112:9000/api"
     url = "http://127.0.0.1:9000/api"
 
-    componentDidMount(){
+    componentDidMount=()=>{
         axios.get(this.url).then((res,error)=>{
             if(error) throw error;
             const datos = res.data[0];
@@ -58,13 +58,15 @@ export default class Controller extends Component {
         })
         console.log("Puntaje total: ",this.state.pto);
 
+       }else if(this.state.chances===0){
+            this.componentDidMount();
        }
     }
 
     render() {
         return (
             <>
-                <Card chances={this.state.chances} data={this.state.data} nropregunta={this.state.nropregunta} pto={this.state.pto} press={this.state.press} pressval={this.state.pressval} onClickHandler={this.onClickHandler} onClickNext={this.onClickNext}/>
+                <Card componentDidMount={this.componentDidMount} chances={this.state.chances} data={this.state.data} nropregunta={this.state.nropregunta} pto={this.state.pto} press={this.state.press} pressval={this.state.pressval} onClickHandler={this.onClickHandler} onClickNext={this.onClickNext}/>
             </>
         )
     }
