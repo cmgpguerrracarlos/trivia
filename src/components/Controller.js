@@ -10,7 +10,8 @@ export default class Controller extends Component {
             press:false,
             pressval:"",
             pto:0,
-            nropregunta:1
+            nropregunta:1,
+            chances:3
         }
     }
 
@@ -22,8 +23,9 @@ export default class Controller extends Component {
         axios.get(this.url).then((res,error)=>{
             if(error) throw error;
             const datos = res.data[0];
-            this.setState({data:datos,press:false});
+            this.setState({data:datos,press:false,chances:3});
         })
+    
     };
 
     onClickHandler = (e)=>{
@@ -33,14 +35,21 @@ export default class Controller extends Component {
             if(opc === this.state.data.correcta){
                 this.setState({press:true,pressval:opc,pto:this.state.pto +4});
             }else{
-                this.setState({press:true,pressval:opc,pto:this.state.pto -1});
+                this.setState({press:true,pressval:opc,pto:this.state.pto -1,chances:this.state.chances-1});
+                console.log(this.state.chances);
+            //     if(this.state.chances === 1){
+            //         console.log("Perdiste");
+            //         document.getElementById('hidden').style.visibility = "visible";
+
+            //         document.getElementById("hidden").appendChild("<h1>mierda</h1>")
+            //    }
             }
         }
         
     }
 
     onClickNext = (e)=>{
-       if(this.state.press){
+       if(this.state.press && this.state.chances>0){
         e.preventDefault();
         axios.get(this.url).then((res,error)=>{
             if(error) throw error;
@@ -55,7 +64,7 @@ export default class Controller extends Component {
     render() {
         return (
             <>
-                <Card data={this.state.data} nropregunta={this.state.nropregunta} pto={this.state.pto} press={this.state.press} pressval={this.state.pressval} onClickHandler={this.onClickHandler} onClickNext={this.onClickNext}/>
+                <Card chances={this.state.chances} data={this.state.data} nropregunta={this.state.nropregunta} pto={this.state.pto} press={this.state.press} pressval={this.state.pressval} onClickHandler={this.onClickHandler} onClickNext={this.onClickNext}/>
             </>
         )
     }

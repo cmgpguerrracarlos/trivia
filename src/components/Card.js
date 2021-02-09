@@ -9,7 +9,10 @@ class Card extends Component {
         return (
             <header className="App-header">
                 <div className="head-container">
-                    <p className="texto" >Puntaje total: {this.props.pto} Cantidad de preguntas: {nropregunta}</p>
+                    {/* <p className="texto" >Puntaje total: {this.props.pto} Cantidad de preguntas: {nropregunta}</p> */}
+                    <div className="texto">
+                        {(this.props.chances===0)?"HAS PERDIDO SERA LA PROXIMA":`Chances: ${this.props.chances}`}
+                    </div>
                     <p className="question">{this.props.data.question}</p>
                 </div>
                 <div className="main-container background">
